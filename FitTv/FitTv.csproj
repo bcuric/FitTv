@@ -192,6 +192,9 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PlayerController.cs" />
+    <Compile Include="Controllers\VideosController.cs" />
+    <Compile Include="Dtos\VideoDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,12 +202,42 @@
     <Compile Include="Migrations\201711111149396_InitialMigration.Designer.cs">
       <DependentUpon>201711111149396_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711111217390_AddingVideos.cs" />
+    <Compile Include="Migrations\201711111217390_AddingVideos.Designer.cs">
+      <DependentUpon>201711111217390_AddingVideos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711111222023_UpdateUserTable.cs" />
+    <Compile Include="Migrations\201711111222023_UpdateUserTable.Designer.cs">
+      <DependentUpon>201711111222023_UpdateUserTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711111243108_UpdateVideoTable.cs" />
+    <Compile Include="Migrations\201711111243108_UpdateVideoTable.Designer.cs">
+      <DependentUpon>201711111243108_UpdateVideoTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711131310426_AddVideoTypeTable.cs" />
+    <Compile Include="Migrations\201711131310426_AddVideoTypeTable.Designer.cs">
+      <DependentUpon>201711131310426_AddVideoTypeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711131401065_UpdateVideoTable1.cs" />
+    <Compile Include="Migrations\201711131401065_UpdateVideoTable1.Designer.cs">
+      <DependentUpon>201711131401065_UpdateVideoTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801211336453_AddThumbnail.cs" />
+    <Compile Include="Migrations\201801211336453_AddThumbnail.Designer.cs">
+      <DependentUpon>201801211336453_AddThumbnail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\VideoType.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\VideoFormViewModel.cs" />
+    <Compile Include="ViewModels\VideoViewModel.cs" />
+    <Compile Include="ViewModels\YoutubeUrl.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -212,7 +245,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -263,6 +296,8 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Videos\Create.cshtml" />
+    <Content Include="Views\Player\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -283,6 +318,24 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711111149396_InitialMigration.resx">
       <DependentUpon>201711111149396_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111217390_AddingVideos.resx">
+      <DependentUpon>201711111217390_AddingVideos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111222023_UpdateUserTable.resx">
+      <DependentUpon>201711111222023_UpdateUserTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711111243108_UpdateVideoTable.resx">
+      <DependentUpon>201711111243108_UpdateVideoTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711131310426_AddVideoTypeTable.resx">
+      <DependentUpon>201711131310426_AddVideoTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711131401065_UpdateVideoTable1.resx">
+      <DependentUpon>201711131401065_UpdateVideoTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801211336453_AddThumbnail.resx">
+      <DependentUpon>201801211336453_AddThumbnail.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

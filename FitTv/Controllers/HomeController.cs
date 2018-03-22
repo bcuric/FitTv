@@ -1,16 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using FitTv.Models;
+using FitTv.ViewModels;
 using System.Web.Mvc;
 
 namespace FitTv.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public HomeController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var videos = _context.Videos;
+            var viewModel = new VideoViewModel
+            {
+                Videos = videos
+            };
+            return View(viewModel);
         }
 
         public ActionResult About()

@@ -22,3 +22,30 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+.img-header {
+    width:100%;
+    height: 400px; 
+    object-fit:cover; 
+    position: relative; 
+    left:0; 
+}
+.img-vid {
+    width: 250px;
+    height: 200px;
+}
+.p-caption {
+    position: absolute;
+    top: 55%;
+    font-size: 200%;
+    left: 15%;
+}
+.p-vid {
+    position: absolute;
+    left: 10%;
+    top: 80%;
+    font-size: 90%;
+}
+
+

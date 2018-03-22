@@ -1,0 +1,35 @@
+﻿@model FitTv.ViewModels.VideoFormViewModel
+@{
+    ViewBag.Title = "VideoForm";
+}
+
+<h2>Add Video</h2>
+
+@using (Html.BeginForm())
+{
+    <p class="alert alert-info">All fields are <strong>required</strong></p>
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Url)
+        @Html.TextBoxFor(m => m.Url, new { @class = "form-control", autofocus = "autofocus" })
+        @Html.ValidationMessageFor(m => m.Url, "YouTube url is not valid!", new { @class= "text-danger" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control", autofocus = "autofocus" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Type)
+        @Html.DropDownListFor(m => m.Type, new SelectList(Model.Types, "Id", "Name"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Type)
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg">Save</button>
+}
+
+@section scripts
+    {
+    @Scripts.Render("~/bundles/jqueryval")
+}
